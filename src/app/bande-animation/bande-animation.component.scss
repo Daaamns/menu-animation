@@ -1,0 +1,50 @@
+.band-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex; /* Aligne les bandes horizontalement */
+  flex-direction: row-reverse;
+
+  .band {
+    writing-mode: vertical-rl; /* Écriture verticale, droite à gauche */
+    text-orientation: upright; /* Texte dans le bon sens */
+    width: 70px;
+    height: 100%; /* Prend toute la hauteur du conteneur */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: gray;
+    color: white;
+    font-size: 30px;
+    transition: transform 0.3s ease;
+
+    &:hover {
+      background-color: lighten(gray, 70%);
+      cursor: pointer;
+    }
+  }
+
+  .band:nth-child(1) {
+    background-color: #ff0000;
+    z-index: 5;
+  }
+
+  .band:nth-child(2) {
+    background-color: #00ff00;
+    z-index: 4;
+  }
+
+  .band:nth-child(3) {
+    background-color: #0000ff;
+    z-index: 3;
+  }
+  .band:nth-child(4) {
+    background-color: orange;
+    z-index: 2;
+  }
+  .band:nth-child(5) {
+    background-color: purple;
+    z-index: 1;
+  }
+}

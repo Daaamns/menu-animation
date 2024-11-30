@@ -1,0 +1,12 @@
+<div class="band-container" @slideInBands>
+  <div
+    class="band"
+    *ngFor="let band of bands; let i = index"
+    (mouseenter)="onHover(i)"
+    (mouseleave)="onLeave()"
+    [class.hovered]="shouldSlide(i)"
+    [ngStyle]="{ transform: getTranslation(i) }"
+  >
+    {{ band.name }}
+  </div>
+</div>
