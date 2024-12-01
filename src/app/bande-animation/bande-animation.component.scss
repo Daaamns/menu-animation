@@ -3,14 +3,14 @@
   top: 0;
   right: 0;
   height: 100vh;
-  display: flex; /* Aligne les bandes horizontalement */
+  display: flex;
   flex-direction: row-reverse;
 
   .band {
-    writing-mode: vertical-rl; /* Écriture verticale, droite à gauche */
-    text-orientation: upright; /* Texte dans le bon sens */
+    writing-mode: vertical-rl;
+    text-orientation: upright;
     width: 70px;
-    height: 100%; /* Prend toute la hauteur du conteneur */
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;

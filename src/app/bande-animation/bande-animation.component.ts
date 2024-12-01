@@ -8,6 +8,7 @@ import {
 } from '@angular/animations';
 import { NgFor, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
+import { closeBands, slideInBands } from '../animation';
 
 @Component({
   selector: 'app-bande-animation',
@@ -15,22 +16,7 @@ import { Component } from '@angular/core';
   imports: [NgFor, NgStyle],
   templateUrl: './bande-animation.component.html',
   styleUrls: ['./bande-animation.component.scss'],
-  animations: [
-    trigger('slideInBands', [
-      transition(':enter', [
-        query(
-          '.band',
-          [
-            style({ transform: 'translateX(500%)' }), // Hors de l'écran et invisible
-            stagger(150, [
-              animate('700ms ease-out', style({ transform: 'translateX(0)' })),
-            ]),
-          ],
-          { optional: true }
-        ),
-      ]),
-    ]),
-  ],
+  animations: [slideInBands, closeBands],
 })
 export class BandeAnimationComponent {
   bands = [
