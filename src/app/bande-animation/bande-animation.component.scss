@@ -27,24 +27,19 @@
 
   .band:nth-child(1) {
     background-color: #ff0000;
-    z-index: 5;
   }
 
   .band:nth-child(2) {
     background-color: #00ff00;
-    z-index: 4;
   }
 
   .band:nth-child(3) {
     background-color: #0000ff;
-    z-index: 3;
   }
   .band:nth-child(4) {
     background-color: orange;
-    z-index: 2;
   }
   .band:nth-child(5) {
     background-color: purple;
-    z-index: 1;
   }
 }

@@ -22,20 +22,3 @@ export const slideInBands = trigger('slideInBands', [
     ),
   ]),
 ]);
-
-export const closeBands = trigger('closeBands', [
-  transition('* => *', [
-    query(
-      '.band',
-      [
-        stagger(-150, [
-          group([
-            animate('500ms ease-in', style({ transform: 'translateX(500%)' })),
-            style({ zIndex: '{{zIndex}}' }),
-          ]),
-        ]),
-      ],
-      { optional: true }
-    ),
-  ]),
-]);

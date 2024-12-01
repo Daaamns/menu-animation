@@ -4,8 +4,9 @@
     *ngFor="let band of bands; let i = index"
     (mouseenter)="onHover(i)"
     (mouseleave)="onLeave()"
+    (click)="onClick(i)"
     [class.hovered]="shouldSlide(i)"
-    [ngStyle]="{ transform: getTranslation(i) }"
+    [ngStyle]="{ transform: getTranslation(i), zIndex: getZIndex(i) }"
   >
     {{ band.name }}
   </div>
