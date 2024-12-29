@@ -31,13 +31,10 @@ export class BandeAnimationComponent {
   }
 
   onClick(index: number) {
-    // Toggle active band index
-    console.log(index);
-
     if (this.activeBandIndex === index) {
-      this.activeBandIndex = null; // If clicked again, close it
+      this.activeBandIndex = null;
     } else {
-      this.activeBandIndex = index; // Set the clicked band as active
+      this.activeBandIndex = index;
     }
   }
 
@@ -46,18 +43,29 @@ export class BandeAnimationComponent {
   }
 
   getTranslation(index: number): string {
-    // For other bands
-    if (this.hoveredBandIndex === null) {
-      return 'translateX(0)';
+    // Si aucune bande n'est active
+    if (this.activeBandIndex === null) {
+      if (this.hoveredBandIndex === null) {
+        return 'translateX(0)';
+      }
+
+      const diff = index - this.hoveredBandIndex;
+
+      if (diff <= 0) {
+        return 'translateX(0px)';
+      } else {
+        return `translateX(${diff * 15}px)`;
+      }
     }
 
-    const diff = index - this.hoveredBandIndex;
+    // Si une bande est active
+    if (this.activeBandIndex !== null) {
+      const distance = index * 70;
 
-    if (diff <= 0) {
-      return 'translateX(0px)';
-    } else {
-      return `translateX(${diff * 15}px)`;
+      return `translateX(${distance}px)`;
     }
+
+    return 'translateX(0)';
   }
 
   getZIndex(index: number): number {

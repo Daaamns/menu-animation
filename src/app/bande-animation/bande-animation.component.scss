@@ -7,6 +7,7 @@
   flex-direction: row-reverse;
 
   .band {
+    transition: transform 0.5s ease, z-index 0.3s ease;
     writing-mode: vertical-rl;
     text-orientation: upright;
     width: 70px;
@@ -17,7 +18,6 @@
     background-color: gray;
     color: white;
     font-size: 30px;
-    transition: transform 0.3s ease;
 
     &:hover {
       background-color: lighten(gray, 70%);
