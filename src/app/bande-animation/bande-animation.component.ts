@@ -1,26 +1,29 @@
 import { NgFor, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { slideInBands } from '../animation';
+import { Router, RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-bande-animation',
   standalone: true,
-  imports: [NgFor, NgStyle],
+  imports: [NgFor, NgStyle, RouterModule],
   templateUrl: './bande-animation.component.html',
   styleUrls: ['./bande-animation.component.scss'],
   animations: [slideInBands],
 })
 export class BandeAnimationComponent {
   bands = [
-    { name: 'page 5', color: '#ff0000' },
-    { name: 'page 4', color: '#00ff00' },
-    { name: 'page 3', color: '#ff0000' },
-    { name: 'page 2', color: '#00ff00' },
-    { name: 'page 1', color: '#0000ff' },
+    { name: 'page 5', route: '5' },
+    { name: 'page 4', route: '4' },
+    { name: 'page 3', route: '3' },
+    { name: 'page 2', route: '2' },
+    { name: 'page 1', route: '' },
   ];
 
   hoveredBandIndex: number | null = null;
   activeBandIndex: number | null = null;
+
+  constructor(private router: Router) {}
 
   onHover(index: number) {
     this.hoveredBandIndex = index;
@@ -35,6 +38,11 @@ export class BandeAnimationComponent {
       this.activeBandIndex = null;
     } else {
       this.activeBandIndex = index;
+      setTimeout(() => {
+        this.router.navigate([this.bands[index].route]).then((success) => {
+          this.activeBandIndex = null;
+        });
+      }, 600);
     }
   }
 

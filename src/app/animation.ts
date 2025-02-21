@@ -13,9 +13,9 @@ export const slideInBands = trigger('slideInBands', [
     query(
       '.band',
       [
-        style({ transform: 'translateX(500%)' }), // Hors de l'écran et invisible
+        style({ transform: 'translateX(500%)' }),
         stagger(150, [
-          animate('700ms ease-out', style({ transform: 'translateX(0)' })),
+          animate('800ms ease-out', style({ transform: 'translateX(0)' })),
         ]),
       ],
       { optional: true }
