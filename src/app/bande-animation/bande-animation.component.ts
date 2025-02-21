@@ -1,4 +1,4 @@
-import { NgFor, NgStyle } from '@angular/common';
+import { NgFor, NgIf, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
 import { slideInBands } from '../shared/animation';
 import { Router, RouterModule } from '@angular/router';
@@ -6,7 +6,7 @@ import { Router, RouterModule } from '@angular/router';
 @Component({
   selector: 'app-bande-animation',
   standalone: true,
-  imports: [NgFor, NgStyle, RouterModule],
+  imports: [NgIf, NgFor, NgStyle, RouterModule],
   templateUrl: './bande-animation.component.html',
   styleUrls: ['./bande-animation.component.scss'],
   animations: [slideInBands],
@@ -22,6 +22,7 @@ export class BandeAnimationComponent {
 
   hoveredBandIndex: number | null = null;
   activeBandIndex: number | null = null;
+  isVisible: boolean = true;
 
   constructor(private router: Router) {}
 
@@ -40,7 +41,12 @@ export class BandeAnimationComponent {
       this.activeBandIndex = index;
       setTimeout(() => {
         this.router.navigate([this.bands[index].route]).then((success) => {
-          this.activeBandIndex = null;
+          this.isVisible = false;
+
+          setTimeout(() => {
+            this.activeBandIndex = null;
+            this.isVisible = true;
+          }, 1000);
         });
       }, 600);
     }

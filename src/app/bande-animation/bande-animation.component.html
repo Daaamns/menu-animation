@@ -1,4 +1,4 @@
-<div class="band-container" @slideInBands>
+<div class="band-container" @slideInBands *ngIf="isVisible">
   <div
     class="band"
     *ngFor="let band of bands; let i = index"
