@@ -1,6 +1,6 @@
 import { NgFor, NgStyle } from '@angular/common';
 import { Component } from '@angular/core';
-import { slideInBands } from '../animation';
+import { slideInBands } from '../shared/animation';
 import { Router, RouterModule } from '@angular/router';
 
 @Component({

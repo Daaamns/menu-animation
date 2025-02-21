@@ -1,4 +1,6 @@
 <app-bande-animation />
 <!-- <div class="black-cube"></div> -->
 
-<router-outlet></router-outlet>
+<main [@slider]="prepareRoute(outlet)">
+  <router-outlet #outlet="outlet"></router-outlet>
+</main>
